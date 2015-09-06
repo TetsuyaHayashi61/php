@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>入力ページ</title>
+  <link rel="stylesheet" href="css/input.css">
+</head>
+<body>
+
+  <h1>コーヒー(豆)の入力</h1>
+  <div id="purchase">
+    <form action="input.php" method="post" enctype="multipart/form-data">
+      JPEG画像：<input type="file" name="pic">
+      <p><label>購入日<input type="date" name="date"></label></p>
+      <p><label>購入店<input type="text" name="shop" size="40"></label></p>
+      <p><label>コーヒー名(銘柄)<input type="text" name="coffee_name" size="40" required></label></p>
+      <p><label>グラム<input type="number" name="volume" size="40"></label>グラム</p>
+      <p><label>金額<input type="number" name="price" size="40"></label></p>
+      <p><label>お店からの情報<input type="text" name="comment" size="80"></label></p>
+      <input type="submit" name="send" value="登録" >
+    </form>
+
+    <form>
+      <fieldset>
+      <legend>焙煎度</legend>
+        <p>浅煎り</p>
+        <p><label><input type="radio" name="roasting" value="1">ライトロースト</label></p>
+        <p><label><input type="radio" name="roasting" value="2">シナモンロースト</label></p>
+        <p>中煎り</p>
+        <p><label><input type="radio" name="roasting" value="3">ミディアムロースト</label></p>
+        <p><label><input type="radio" name="roasting" value="4">ハイロースト</label></p>
+        <p>中深煎り</p>
+        <p><label><input type="radio" name="roasting" value="5">シティロースト</label></p>
+        <p><label><input type="radio" name="roasting" value="6">フルシティロースト</label></p>
+        <p>深煎り</p>
+        <p><label><input type="radio" name="roasting" value="7">フレンチロースト</label></p>
+        <p><label><input type="radio" name="roasting" value="8">イタリアンロースト</label></p>
+      </fieldset>
+      <p><label>焙煎日<input type="date" name="roasting_date"></label></p>
+      </div>
+
+      <div id="box2">
+      <fieldset>
+      <legend>淹れ方</legend>
+        <p><label><input type="radio" name="extract" value="drip_paper">ドリップ(ペーパーフィルター)</label></p>
+        <p><label><input type="radio" name="extract" value="drip_metal">ドリップ(金属フィィルター)</label></p>
+        <p><label><input type="radio" name="extract" value="drip_nel">ネルドリップ</label></p>
+        <p><label><input type="radio" name="extract" value="french_press">フレンチプレス</label></p>
+        <p><label><input type="radio" name="extract" value="siphon">サイフォン</label></p>
+        <p><label><input type="radio" name="extract" value="direct">直火</label></p>
+        <p><label><input type="radio" name="extract" value="espresso">エスプレッソ</label></p>
+      </fieldset>
+      <p><label>飲み方<input type="text" name="beans" size="40"></label></p>
+      <!--評価-->
+    <fieldset>
+      <legend>味わい</legend>
+      <p><label>苦味<input type="number" step="0.5" min="1.0" max="5.0" name="review[score1]" size="10"></label></p>
+      <p><label>甘味<input type="number" step="0.5" min="1.0" max="5.0" name="review[score2]" size="10"></label></p>
+      <p><label>酸味<input type="number" step="0.5" min="1.0" max="5.0" name="review[score3]" size="10"></label></p>
+      <p><label>香り<input type="number" step="0.5" min="1.0" max="5.0" name="review[score4]" size="10"></label></p>
+      <p><label>コク<input type="number" step="0.5" min="1.0" max="5.0" name="review[score5]" size="10"></label></p>
+    </fieldset>
+    <br>
+      <textarea placeholder="フリーメモ" name="comment" cols="50" rows="10"></textarea>
+    </div>
+      <p><button type="submit">登録</button></p>
+      <p><input type="hidden" name="user_id" value="00001"></p>
+    </form>
+</body>
+</html>
