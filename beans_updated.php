@@ -7,6 +7,10 @@
 </head>
 <body>
   <?php
+    $shop = $_POST['shop'];
+    $coffee_name = $_POST['coffee_name'];
+    $old_pid = $_POST['old_pid'];
+
     try {
       $pdo = new PDO('mysql:host=localhost;dbname=beans;','coffee','coffeememo',
       array(PDO::ATTR_EMULATE_PREPARES => false));
@@ -14,11 +18,11 @@
       exit('データベース接続失敗。'.$e->getMessage());
     }
 
-    $st = $pdo->prepare("UPDATE purchased SET shop=:shop, coffee_name=:coffee_name WHERE shop=:old_shop");
+    $st = $pdo->prepare("UPDATE purchased SET shop=:shop, coffee_name=:coffee_name WHERE pid=:old_pid");
     $st->bindParam(':shop', $shop, PDO::PARAM_STR);
     $st->bindParam(':coffee_name', $coffee_name, PDO::PARAM_STR);
-    $st->bindParam(':old_shop', $old_shop, PDO::PARAM_STR);
-    $st->execute(array($_POST['shop'],$_POST['coffee_name'],$_POST['old_shop']));
+    $st->bindParam(':old_pid', $old_pid, PDO::PARAM_INT);
+    $st->execute(array($shop,$coffee_name,$old_pid));
     echo "登録内容を変更しました。";
   ?>
   <p><a href='beans.php'>一覧へ戻る</a>

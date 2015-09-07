@@ -21,10 +21,11 @@
       <?php
       $st = $pdo->query("SELECT * FROM purchased");
       while ($row = $st->fetch()) {
+        $pid = htmlspecialchars($row['pid']);
         $shop = htmlspecialchars($row['shop']);
         $coffee_name = htmlspecialchars($row['coffee_name']);
-        echo "<tr><td>$shop</td><td>$coffee_name</td><td><a href='beans_update.php?shop=$shop'>修正</a></td>
-        <td><a href='beans_delete.php?shop=$shop' onclick=\"return confirm('削除してよろしいですか？')\">削除</a></td></tr>";
+        echo "<tr><td>$shop</td><td>$coffee_name</td><td><a href='beans_update.php?pid=$pid'>修正</a></td>
+        <td><a href='beans_delete.php?pid=$pid' onclick=\"return confirm('削除してよろしいですか？')\">削除</a></td></tr>";
       }
       ?>
     </table>
